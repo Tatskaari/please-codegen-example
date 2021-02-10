@@ -1,0 +1,13 @@
+[go]
+importpath = github.com/tatskaari/please-codegen-example
+
+[build]
+LinkGeneratedSources = true
+
+[proto]
+Language = go
+ProtocTool = //third_party/proto:protoc
+ProtocGoPlugin = //third_party/go:protoc-gen-go
+
+[FeatureFlags]
+PleaseDownloadTools = true

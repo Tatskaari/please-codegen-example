@@ -1,0 +1,6 @@
+def update_gitignore(name:str):
+    pkg = package_name()
+    return sh_cmd(
+        name = "update_gitignore",
+        cmd = f"plz codegen --update_gitignore={pkg}/.gitignore //{pkg}/...",
+    )

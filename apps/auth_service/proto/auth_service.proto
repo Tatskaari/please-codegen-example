@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package scheduler;
+
+option go_package = "github.com/tatskaari/please-codegen-example/apps/auth_service/proto";
+
+
+service AuthService {
+    rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse) {};
+    rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {};
+};
+
+message ValidateTokenRequest {
+    string request_id = 1;
+    string token = 2;
+}
+
+message ValidateTokenResponse {
+
+}
+
+message AuthenticateRequest {
+    string request_id = 1;
+    string username = 2;
+    string password = 3;
+}
+
+
+message AuthenticateResponse {
+    string token = 1;
+}
