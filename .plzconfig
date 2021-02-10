@@ -11,3 +11,4 @@ ProtocGoPlugin = //third_party/go:protoc-gen-go
 
 [FeatureFlags]
 PleaseDownloadTools = true
+PleaseGoInstall = true

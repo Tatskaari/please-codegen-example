@@ -1,5 +1,5 @@
 grpc_library(
-    name = "user_service",
+    name = "proto",
     srcs = ["user_service.proto"],
     visibility = ["//apps/user_service/..."],
 )

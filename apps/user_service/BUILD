@@ -5,6 +5,7 @@ go_binary(
     srcs = ["main.go"],
     deps = [
         "//apps/auth_service/proto",
+        "//apps/user_service/proto",
     ],
 )
 
