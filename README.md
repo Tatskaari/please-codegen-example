@@ -27,11 +27,12 @@ The codegen subcommand can also be used to generate a .gitignore to ignore the g
 $ plz codegen --update_gitignore=apps/user_service/.gitignore
 ```
 
-I've also created some helpers: `//apps/user_service:generate_gitignore` and `//apps/auth_service:generate_gitignore`.
+I've also created some helpers: `//apps/user_service:generate_gitignore` and `//apps/auth_service:generate_gitignore`, 
+which will update the relevant `.gitignore` files.
 
 ## Bringing it together
 Once all the code is generated, `go build`, intellij and other tooling should be able to find the relevant sources. You 
-can open `apps/user_service` as a intellij project, set up module integrations, and your away. 
+can open `apps/user_service` as a intellij project, set up module integrations, and you're away. 
 
 For some projects, you may want to create a single go.mod in the repo root however this repo demonstrates how it might 
 work for a monorepo. Where one module depends on another, a `replace` directive has been added to the go.mod withe a 
