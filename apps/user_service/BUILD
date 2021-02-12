@@ -1,5 +1,3 @@
-subinclude("//build/defs:gitignore")
-
 go_binary(
     name = "user_service",
     srcs = ["main.go"],
@@ -9,4 +7,8 @@ go_binary(
     ],
 )
 
-update_gitignore(name = "update_gitignore")
+pkg = package_name()
+sh_cmd(
+    name = "update_gitignore",
+    cmd = f"plz generate --update_gitignore={pkg}/.gitignore",
+)

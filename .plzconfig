@@ -1,5 +1,8 @@
+[please]
+version = 15.16.0-beta.1
+
 [go]
-importpath = github.com/tatskaari/please-codegen-example
+GoTestRootCompat = true
 
 [build]
 LinkGeneratedSources = true

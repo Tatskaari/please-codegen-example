@@ -3,12 +3,18 @@ package main
 import (
 	"context"
 
-	authproto "github.com/tatskaari/please-codegen-example/apps/auth_service/proto"
-	userproto "github.com/tatskaari/please-codegen-example/apps/user_service/proto"
+	authproto "apps/auth_service/proto"
+	userproto "apps/user_service/proto"
 )
+
+type DAO interface {
+	StoreUser(string, string) error
+}
 
 type userService struct {
 	authService authproto.AuthServiceClient
+
+	dao DAO
 }
 
 func (u *userService) CreateUser(ctx context.Context, request *userproto.CreateUserRequest) (*userproto.User, error) {
@@ -17,13 +23,13 @@ func (u *userService) CreateUser(ctx context.Context, request *userproto.CreateU
 		Token:     request.AuthToken,
 	})
 
-	/**
-	 * Imagine some code here to create the user in the DB
-	 */
+	if err := u.dao.StoreUser(request.User.Username, request.User.Email); err != nil {
+		return nil, err
+	}
 
 	return request.User, err
 }
 
 func main() {
-	panic("this is a stub")
+	println("Success! User service compiled and ran!")
 }

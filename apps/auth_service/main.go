@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/tatskaari/please-codegen-example/apps/auth_service/proto"
-	"github.com/tatskaari/please-codegen-example/common/go/auth"
+	"apps/auth_service/proto"
+	"common/go/auth"
 )
 
 type authService struct {
@@ -26,5 +26,5 @@ func (a *authService) ValidateToken(c context.Context, request *proto.ValidateTo
 }
 
 func main() {
-
+	println("Success! Auth service compiled and ran!")
 }
